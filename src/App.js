@@ -8,10 +8,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header></Header>
-        <header className="App-header">
-          <h1>Hello, world!</h1>
-          <h3>{new Date().toLocaleTimeString()}</h3>
-        </header>
+        <h1>Hello, world!</h1>
+        <h3>{new Date().toLocaleTimeString()}</h3>
       </div>
     )
   }
