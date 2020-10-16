@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 
+/* Header class that inherits from React.Component. */
 export class Header extends React.Component {
 
   render() {

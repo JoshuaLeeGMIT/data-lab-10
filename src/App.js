@@ -27,6 +27,7 @@ class App extends React.Component {
         <BrowserRouter>
           <div className="App">
             <Navbar bg="primary" variant="dark">
+            { /* Custom navbar title */ }
             <Navbar.Brand href="/">Lab 2</Navbar.Brand>
               <Nav className="mr-auto">
                 <Nav.Link href="/">Home</Nav.Link>
@@ -34,6 +35,7 @@ class App extends React.Component {
                 <Nav.Link href="/create">Create</Nav.Link>
               </Nav>
             </Navbar>
+            { /* Routing to navigate between components. */ }
             <Switch>
               <Route exact path="/" component={Header}/>
               <Route exact path="/read" component={Content}/>

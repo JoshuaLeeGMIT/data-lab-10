@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 
+/* Footer class that inherits from React.Component. */
 export class Footer extends React.Component {
 
   render() {
