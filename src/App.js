@@ -14,6 +14,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Header } from './components/header';
 import { Content } from './components/content';
 import { Footer } from './components/footer';
+import { Create } from './components/create';
+import { Read } from './components/read';
 
 /* CSS imports. */
 import './App.css';
@@ -38,8 +40,8 @@ class App extends React.Component {
             { /* Routing to navigate between components. */ }
             <Switch>
               <Route exact path="/" component={Header}/>
-              <Route exact path="/read" component={Content}/>
-              <Route exact path="/create" component={Footer}/>
+              <Route exact path="/read" component={Read}/>
+              <Route exact path="/create" component={Create}/>
             </Switch>
           </div>
         </BrowserRouter>
