@@ -30,7 +30,7 @@ class App extends React.Component {
           <div className="App">
             <Navbar bg="primary" variant="dark">
             { /* Custom navbar title */ }
-            <Navbar.Brand href="/">Lab 2</Navbar.Brand>
+            <Navbar.Brand href="/">Lab 4</Navbar.Brand>
               <Nav className="mr-auto">
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/read">Read</Nav.Link>
