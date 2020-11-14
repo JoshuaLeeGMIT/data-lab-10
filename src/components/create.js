@@ -44,6 +44,7 @@ export class Create extends React.Component {
   }
 
   onSubmit(event) {
+    /* Create object from state to send to server. */
     let data = {
       title: this.state.Title,
       year: this.state.Year,
@@ -52,6 +53,7 @@ export class Create extends React.Component {
 
     event.preventDefault();
 
+    /* Make POST request to server. */
     axios.post('http://localhost:4000/api/movies', data).then((res) => {
       console.log(res);
     })

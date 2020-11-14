@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const port = 4000;
 
+/* Set up cors and body-parser. */
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cors());
@@ -14,10 +15,12 @@ app.use(function(req, res, next) {
   next();
 });
 
+/* Handle POST from front end and log data to console. */
 app.post('/api/movies', (req, res) => {
   console.log(req.body.title + ' ' + req.body.year + ' ' + req.body.poster);
 })
 
+/* Send back JSON API on GET from front end. */
 app.get('/api/movies', (req, res) => {
   let data = [
     {
