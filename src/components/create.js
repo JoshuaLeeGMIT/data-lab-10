@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import '../App.css';
 
@@ -43,9 +44,20 @@ export class Create extends React.Component {
   }
 
   onSubmit(event) {
+    let data = {
+      title: this.state.Title,
+      year: this.state.Year,
+      poster: this.state.Poster
+    };
+
     event.preventDefault();
-    /* Print state to the console. */
-    console.log(this.state);
+
+    axios.post('http://localhost:4000/api/movies', data).then((res) => {
+      console.log(res);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
   }
 
   render() {
