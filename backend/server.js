@@ -1,8 +1,11 @@
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 const app = express();
 const port = 4000;
 
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use(cors());
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -10,6 +13,10 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+app.post('/api/movies', (req, res) => {
+  console.log(req.body.title + ' ' + req.body.year + ' ' + req.body.poster);
+})
 
 app.get('/api/movies', (req, res) => {
   let data = [
