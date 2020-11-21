@@ -1,8 +1,10 @@
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
 const port = 4000;
+const cloudtm = "mongodb+srv://root:root@cluster0.vj971.mongodb.net/movies?retryWrites=true&w=majority";
 
 /* Set up cors and body-parser. */
 app.use(bodyParser.urlencoded({extended: false}));
@@ -14,6 +16,9 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+/* Connect to database. */
+mongoose.connect(cloudtm, {useNewUrlParser: true})
 
 /* Handle POST from front end and log data to console. */
 app.post('/api/movies', (req, res) => {
