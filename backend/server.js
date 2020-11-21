@@ -6,6 +6,13 @@ const app = express();
 const port = 4000;
 const cloudtm = "mongodb+srv://root:root@cluster0.vj971.mongodb.net/movies?retryWrites=true&w=majority";
 
+/* Define movie schema for sever. */
+var movieSchema = new mongoose.Schema({
+  title: String,
+  year: String,
+  poster: String
+});
+
 /* Set up cors and body-parser. */
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
