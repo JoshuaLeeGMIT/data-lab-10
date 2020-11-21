@@ -12,6 +12,7 @@ var movieSchema = new mongoose.Schema({
   year: String,
   poster: String
 });
+var movieModel = mongoose.model("movies", movieSchema);
 
 /* Set up cors and body-parser. */
 app.use(bodyParser.urlencoded({extended: false}));
