@@ -32,6 +32,7 @@ mongoose.connect(cloudtm, {useNewUrlParser: true})
 app.post('/api/movies', (req, res) => {
   console.log(req.body.title + ' ' + req.body.year + ' ' + req.body.poster);
 
+  /* Create document on server. */
   movieModel.create({
     title: req.body.title,
     year: req.body.year,
