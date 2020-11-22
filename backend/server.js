@@ -31,6 +31,14 @@ mongoose.connect(cloudtm, {useNewUrlParser: true})
 /* Handle POST from front end and log data to console. */
 app.post('/api/movies', (req, res) => {
   console.log(req.body.title + ' ' + req.body.year + ' ' + req.body.poster);
+
+  movieModel.create({
+    title: req.body.title,
+    year: req.body.year,
+    poster: req.body.poster
+  });
+
+  res.send("create() successful");
 })
 
 /* Send back JSON API on GET from front end. */
@@ -66,7 +74,9 @@ app.get('/api/movies', (req, res) => {
     }
   ];
 
-  res.json({movies: data});
+  movieMode.find((err, data) => {
+    res.json(data);
+  });
 })
 
 app.get('/', (req, res) => {
