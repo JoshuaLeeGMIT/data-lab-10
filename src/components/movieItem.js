@@ -11,11 +11,11 @@ export class MovieItem extends React.Component {
         {/* Card from Bootstrap. */}
         <Card style={{ width: '18rem' }}>
           {/* Access the movie poster through the passed in object. */}
-          <Card.Img variant="top" src={this.props.movie.Poster} />
+          <Card.Img variant="top" src={this.props.movie.poster} />
           <Card.Body>
             {/* Access the attributes of the passed in movie object. */}
-            <Card.Title>{this.props.movie.Title}</Card.Title>
-            <Card.Text>{this.props.movie.Year}</Card.Text>
+            <Card.Title>{this.props.movie.title}</Card.Title>
+            <Card.Text>{this.props.movie.year}</Card.Text>
           </Card.Body>
         </Card>
       </div>
