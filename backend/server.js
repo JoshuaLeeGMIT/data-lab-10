@@ -41,9 +41,16 @@ app.post('/api/movies', (req, res) => {
   res.send("create() successful");
 })
 
+/* Send back JSON data on ID search. */
+app.get('/api/movies/:id', (req, res) => {
+  movieModel.findById(req.params.id, (data) => {
+    res.json(data);
+  });
+})
+
 /* Send back JSON API on GET from front end. */
 app.get('/api/movies', (req, res) => {
-  movieMode.find((err, data) => {
+  movieModel.find((err, data) => {
     res.json(data);
   });
 })
