@@ -9,6 +9,19 @@ export class Read extends React.Component {
     movies: []
   }
 
+  constructor() {
+    super();
+    this.reloadPage = this.reloadPage.bind(this);
+  }
+
+  reloadPage() {
+    axios.get("http://localhost:4000/api/movies").then((response) => {
+      this.setState({movies: response.data.movies})
+    }).catch((e) => {
+      console.log(e);
+    });
+  }
+
   /* Implement lifecycle hook. */
   componentDidMount() {
     /* Make a GET request to fill object's state. */
