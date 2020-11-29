@@ -28,6 +28,16 @@ app.use(function(req, res, next) {
 /* Connect to database. */
 mongoose.connect(cloudtm, {useNewUrlParser: true})
 
+/* Handle deleting of documents on server. */
+app.delete('/api/movies/:id', function(req, res) {
+  movieModel.deleteOne({_id: req.params.id}, function(e, data) {
+    if (e)
+      res.send(e);
+    else /* Don't send the data if there was an error. */
+      res.send(data);
+  });
+})
+
 /* Handle POST from front end and log data to console. */
 app.post('/api/movies', (req, res) => {
   console.log(req.body.title + ' ' + req.body.year + ' ' + req.body.poster);
