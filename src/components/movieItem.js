@@ -1,9 +1,24 @@
+import axios from 'axios';
 import React from 'react';
 /* Import the necessary Bootstrap item. */
+import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import '../App.css';
 
 export class MovieItem extends React.Component {
+
+  constructor() {
+    super();
+    this.deleteMovie = this.deleteMovie.bind(this);
+  }
+
+  deleteMovie(e) {
+    e.preventDefault();
+
+    axios.delete('http://localhost:4000/api/movies/' + this.props.movies._id)
+    .then()
+    .catch();
+  }
 
   render() {
     return (
@@ -17,6 +32,8 @@ export class MovieItem extends React.Component {
             <Card.Title>{this.props.movie.title}</Card.Title>
             <Card.Text>{this.props.movie.year}</Card.Text>
           </Card.Body>
+          {/* Create button and hook it up to delete function */}
+          <Button variant="danger" onClick={this.deleteMovie}>Delete</Button>
         </Card>
       </div>
     )
