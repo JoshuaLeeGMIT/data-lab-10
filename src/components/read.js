@@ -25,17 +25,11 @@ export class Read extends React.Component {
   /* Implement lifecycle hook. */
   componentDidMount() {
     /* Make a GET request to fill object's state. */
-    axios.get("http://localhost:4000/api/movies")
-      .then(
-        (response) => {
-          this.setState({movies: response.data})
-        }
-      )
-      .catch(
-        (e) => {
-          console.log(e);
-        }
-      );
+    axios.get("http://localhost:4000/api/movies").then((response) => {
+      this.setState({movies: response.data})
+    }).catch((e) => {
+      console.log(e);
+    });
   }
 
   render() {
