@@ -38,6 +38,12 @@ app.delete('/api/movies/:id', function(req, res) {
   });
 })
 
+app.put('api/movies', (req, res) => {
+  movieModel.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, data) => {
+    res.send(data);
+  })
+})
+
 /* Handle POST from front end and log data to console. */
 app.post('/api/movies', (req, res) => {
   console.log(req.body.title + ' ' + req.body.year + ' ' + req.body.poster);
