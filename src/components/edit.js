@@ -60,6 +60,7 @@ export class Edit extends React.Component {
   onSubmit(event) {
     /* Create object from state to send to server. */
     let data = {
+      _id: this.state._id,
       title: this.state.Title,
       year: this.state.Year,
       poster: this.state.Poster
@@ -67,11 +68,10 @@ export class Edit extends React.Component {
 
     event.preventDefault();
 
-    /* Make POST request to server. */
-    axios.post('http://localhost:4000/api/movies', data).then((res) => {
+    /* Make PUT request to server. */
+    axios.put('http://localhost:4000/api/movies' + this.state._id, data).then((res) => {
       console.log(res);
-    })
-    .catch((e) => {
+    }).catch((e) => {
       console.log(e);
     });
   }
