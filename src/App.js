@@ -16,6 +16,7 @@ import { Content } from './components/content';
 import { Footer } from './components/footer';
 import { Create } from './components/create';
 import { Read } from './components/read';
+import { Edit } from './components/edit';
 
 /* CSS imports. */
 import './App.css';
@@ -42,6 +43,7 @@ class App extends React.Component {
               <Route exact path="/" component={Header}/>
               <Route exact path="/read" component={Read}/>
               <Route exact path="/create" component={Create}/>
+              <Route exact path="/edit:id" component={Edit}/>
             </Switch>
           </div>
         </BrowserRouter>
