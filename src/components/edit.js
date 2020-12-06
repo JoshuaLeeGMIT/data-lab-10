@@ -24,7 +24,7 @@ export class Edit extends React.Component {
 
   /* Lifecycle hook. */
   componentDidMount() {
-    axios.get('https://localhost:4000/apis/movies/' + this.props.match.params.id).then(response => {
+    axios.get('http://localhost:4000/apis/movies/' + this.props.match.params.id).then(response => {
       this.setState({
         _id: response.data._id,
         Title: response.data.title,
