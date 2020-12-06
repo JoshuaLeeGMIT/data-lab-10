@@ -22,6 +22,20 @@ export class Edit extends React.Component {
     };
   }
 
+  /* Lifecycle hook. */
+  componentDidMount() {
+    axios.get('https://localhost:4000/apis/movies/' + this.props.match.params.id).then(response => {
+      this.setState({
+        _id: response.data._id,
+        Title: response.data.title,
+        Year: response.data.year,
+        Poster: response.data.poster
+      })
+    }).catch((e) => {
+      console.log(e);
+    })
+  }
+
   /* Handle form changes, setting the appropriate state field. */
   onChangePoster(e) {
     this.setState({
