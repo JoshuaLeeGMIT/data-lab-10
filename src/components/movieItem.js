@@ -4,6 +4,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import '../App.css';
+import { Link } from 'react-router-dom';
 
 export class MovieItem extends React.Component {
 
@@ -33,6 +34,7 @@ export class MovieItem extends React.Component {
             <Card.Title>{this.props.movie.title}</Card.Title>
             <Card.Text>{this.props.movie.year}</Card.Text>
           </Card.Body>
+          <Link to={"/edit" + this.props.movie._id} className="btn btn-primary">Edit</Link>
           {/* Create button and hook it up to delete function */}
           <Button variant="danger" onClick={this.deleteMovie}>Delete</Button>
         </Card>
