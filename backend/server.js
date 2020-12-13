@@ -2,6 +2,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 const app = express();
 const port = 4000;
 const cloudtm = "mongodb+srv://root:root@cluster0.vj971.mongodb.net/movies?retryWrites=true&w=majority";
@@ -24,6 +25,9 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+/* Hook up build folder. */
+app.use(express.static(path.join(__dirname, '/../build')));
+app.use('/static', express.static(path.join(__dirname, '/build/static')));
 
 /* Connect to database. */
 mongoose.connect(cloudtm, {useNewUrlParser: true})
@@ -56,6 +60,11 @@ app.post('/api/movies', (req, res) => {
   });
 
   res.send("create() successful");
+})
+
+/* Send back single-page app on GET. */
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/../build/index.html'));
 })
 
 /* Send back JSON data on ID search. */
